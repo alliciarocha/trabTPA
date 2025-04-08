@@ -39,9 +39,8 @@ public class Menu {
                         break;
                     default:
                         Mensagem.FormatoAmarelo(
-                                "Opção Inválida!",
-                                "Apenas números inteiros são permitidos!",
-                                "Tente novamente."
+                                "ATENÇÃO: Opção inválida!",
+                                "Digite uma opção válida!"
                         );
                 }
             } catch (InputMismatchException e) {

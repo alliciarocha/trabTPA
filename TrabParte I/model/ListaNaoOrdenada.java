@@ -2,8 +2,9 @@ package model;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Iterator;
 
-public class ListaNaoOrdenada<T> {
+public class ListaNaoOrdenada<T> implements Iterable<T> {
     private List<T> elementos;
 
     public ListaNaoOrdenada() {
@@ -21,5 +22,9 @@ public class ListaNaoOrdenada<T> {
             }
         }
         return null;
+    }
+
+    public Iterator<T> iterator() {
+        return elementos.iterator();
     }
 }

@@ -1,6 +1,6 @@
 package model;
 
-public class Aluno {
+public class Aluno{
     private int matricula;
     private String nome;
     private float nota;
