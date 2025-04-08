@@ -12,6 +12,7 @@ public class Menu {
         int opcao = 0;
 
         while (opcao != 3) {
+            System.out.print("\n");
             System.out.print("╔═══════════════════════════════════════════╗\n");
             System.out.print("║                   MENU                    ║\n");
             System.out.print("╠═══════════════════════════════════════════╣\n");
@@ -25,29 +26,29 @@ public class Menu {
                 opcao = menu.nextInt();
                 switch (opcao) {
                     case 1:
-                        System.out.println("\n🔎 Você escolheu: *** PESQUISAR NA LISTA NÃO ORDENADA ***");
+                        System.out.println("\nVocê escolheu: *** PESQUISAR NA LISTA NÃO ORDENADA ***");
                         break;
 
                     case 2:
-                        System.out.println("\n🔎 Você escolheu: *** PESQUISAR NA LISTA ORDENADA ***");
+                        System.out.println("\nVocê escolheu: *** PESQUISAR NA LISTA ORDENADA ***");
                         break;
 
                     case 3:
-                        System.out.println("\n👋 Até logo! Encerrando o programa...");
+                        System.out.println("\nAté logo! Encerrando o programa...");
                         menu.close();
                         break;
                     default:
                         Mensagem.FormatoAmarelo(
-                                "🚫 Opção Inválida!",
-                                "⚠️ Apenas números inteiros são permitidos!",
-                                "🔁 Tente novamente."
+                                "Opção Inválida!",
+                                "Apenas números inteiros são permitidos!",
+                                "Tente novamente."
                         );
                 }
             } catch (InputMismatchException e) {
                 Mensagem.FormatoVermelho(
-                        "🚫 ERRO: Entrada inválida!",
-                        "⚠️ Apenas números inteiros são permitidos!",
-                        "🔁 Tente novamente."
+                        "ERRO: Entrada inválida!",
+                        "Apenas números inteiros são permitidos!",
+                        "Tente novamente."
                 );
                 menu.next();
             }
