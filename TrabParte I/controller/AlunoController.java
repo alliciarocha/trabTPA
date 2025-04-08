@@ -28,8 +28,6 @@ public class AlunoController {
             }
 
             FormatoVerde(
-                    "ARQUIVO LIDO COM SUCESSO!",
-                    "Total de alunos: " + alunos.size() + " alunos",
                     "LISTAS CRIADAS COM SUCESSO!"
             );
 

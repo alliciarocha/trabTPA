@@ -5,8 +5,10 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.*;
 
+import static view.Mensagem.FormatoVerde;
+
 public class LeitorArquivos {
-    private static final String NOME_ARQUIVO = "alunosBalanceados.txt";
+    private static final String NOME_ARQUIVO = "TrabParte I/resources/alunosBalanceados.txt";
     public List<Aluno> ler() throws IOException {
         List<Aluno> alunos = new ArrayList<>();
 
@@ -24,6 +26,12 @@ public class LeitorArquivos {
                 float nota = Float.parseFloat(partes[2]);
                 alunos.add(new Aluno(matricula, nome, nota));
             }
+
+            FormatoVerde(
+                    "ARQUIVO LIDO COM SUCESSO!",
+                    "Total de alunos: " + numRegistros + " alunos"
+            );
+
         } catch (IOException e) {
             System.err.println("Erro ao ler o arquivo: " + e.getMessage());
         } catch (NumberFormatException e) {
