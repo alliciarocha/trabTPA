@@ -36,12 +36,4 @@ public class Mensagem {
     public static void FormatoAmarelo(String... linhas) {
         printCaixa("\u001B[33m", linhas);
     }
-
-    public static void FormatoVerde(String... linhas) {
-        printCaixa("\u001B[32m", linhas);
-    }
-
-    public static void FormatoAzul(String... linhas) {
-        printCaixa("\u001B[34m", linhas);
-    }
 }
