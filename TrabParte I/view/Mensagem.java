@@ -1,6 +1,12 @@
 package view;
 
 public class Mensagem {
+    private static final String RESET = "\u001B[0m";
+    private static final String AMARELO = "\u001B[33m";
+    private static final String AZUL = "\u001B[34m";
+    private static final String VERMELHO = "\u001B[31m";
+    private static final String VERDE = "\u001B[32m";
+
     public static void printCaixa(String cor, String... linhas) {
         int maxLen = 0;
         for (String linha : linhas) {
@@ -14,7 +20,7 @@ public class Mensagem {
         printBorda("topo",largura);
 
         for (String linha : linhas) {
-            System.out.printf("║ %s%-" + maxLen + "s%s ║\n", cor, linha, "\u001B[0m");
+            System.out.printf("║ %s%-" + maxLen + "s%s ║\n", cor, linha, RESET);
         }
 
         printBorda("rodape",largura);
@@ -30,10 +36,18 @@ public class Mensagem {
     }
 
     public static void FormatoVermelho(String... linhas) {
-        printCaixa("\u001B[31m", linhas);
+        printCaixa(VERMELHO, linhas);
     }
 
     public static void FormatoAmarelo(String... linhas) {
-        printCaixa("\u001B[33m", linhas);
+        printCaixa(AMARELO, linhas);
+    }
+
+    public static void FormatoAzul(String... linhas) {
+        printCaixa(AZUL, linhas);
+    }
+
+    public static void FormatoVerde(String... linhas) {
+        printCaixa(VERDE, linhas);
     }
 }

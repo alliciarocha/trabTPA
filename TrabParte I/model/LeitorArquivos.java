@@ -6,19 +6,22 @@ import java.io.IOException;
 import java.util.*;
 
 public class LeitorArquivos {
-    public List<Aluno> ler(String NOME_ARQUIVO) throws IOException {
+    private static final String NOME_ARQUIVO = "alunosBalanceados.txt";
+    public List<Aluno> ler() throws IOException {
         List<Aluno> alunos = new ArrayList<>();
+
         try (BufferedReader reader = new BufferedReader(new FileReader(NOME_ARQUIVO))) {
-//            int numRegistros = Integer.parseInt(reader.readLine().trim());
+            int numRegistros = Integer.parseInt(reader.readLine().trim());
 //            System.out.println("Número de registros: " + numRegistros);
 
             String linha;
             while ((linha = reader.readLine()) != null) {
+                if (linha.trim().isEmpty()) continue;
+
                 String[] partes = linha.split(";");
                 int matricula = Integer.parseInt(partes[0]);
                 String nome = partes[1];
                 float nota = Float.parseFloat(partes[2]);
-
                 alunos.add(new Aluno(matricula, nome, nota));
             }
         } catch (IOException e) {
