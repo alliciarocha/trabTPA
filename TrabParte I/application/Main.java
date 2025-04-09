@@ -10,6 +10,7 @@ public class Main {
     public static void main(String[] args) {
         AlunoController controller = new AlunoController();
         controller.carregarDados();
-        show();
+
+        show(controller);
     }
 }

@@ -50,4 +50,20 @@ public class Mensagem {
     public static void FormatoVerde(String... linhas) {
         printCaixa(VERDE, linhas);
     }
+
+    public static void TextoVerde(String texto) {
+        System.out.println(VERDE + texto + RESET);
+    }
+
+    public static void TextoAzul(String texto) {
+        System.out.println(AZUL + texto + RESET);
+    }
+
+    public static void TextoAmarelo(String texto) {
+        System.out.println(AMARELO + texto + RESET);
+    }
+
+    public static void TextoVermelho(String texto) {
+        System.out.println(VERMELHO + texto + RESET);
+    }
 }

@@ -3,10 +3,11 @@ package view;
 import java.util.Scanner;
 import java.util.InputMismatchException;
 import view.Mensagem;
+import controller.AlunoController;
 
 public class Menu {
 
-    public static void show() {
+    public static void show(AlunoController controller) {
 
         Scanner menu = new Scanner (System.in);
         int opcao = 0;
@@ -26,7 +27,11 @@ public class Menu {
                 opcao = menu.nextInt();
                 switch (opcao) {
                     case 1:
+                        Scanner sc = new Scanner (System.in);
                         System.out.println("\nVocê escolheu: *** PESQUISAR NA LISTA NÃO ORDENADA ***");
+                        System.out.print("Digite a matrícula do aluno: ");
+                        String matricula = sc.nextLine();
+                        controller.pesquisarAlunoPorMatricula(matricula);
                         break;
 
                     case 2:

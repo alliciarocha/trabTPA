@@ -36,6 +36,15 @@ public class Aluno{
 
     @Override
     public String toString() {
-        return "model.Aluno: " + this.nome + "," + "Matrícula: " + this.matricula + "," + "Nota" + this.nome;
+        return "Aluno: " + this.nome + "," + "Matrícula: " + this.matricula + "," + "Nota" + this.nome;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+
+        Aluno outro = (Aluno) obj;
+        return this.matricula == (outro.getMatricula());
     }
 }
