@@ -94,6 +94,5 @@ public class AlunoController {
 
     public void printConteudoListas() {
         System.out.println("\n--- Lista Não Ordenada ---");
-        listaNaoOrdenada.forEach(System.out::println);
     }
 }

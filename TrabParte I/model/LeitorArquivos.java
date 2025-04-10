@@ -8,7 +8,7 @@ import java.util.*;
 import static view.Mensagem.FormatoVerde;
 
 public class LeitorArquivos {
-    private static final String NOME_ARQUIVO = "TrabParte I/resources/alunosBalanceados.txt";
+    private static final String NOME_ARQUIVO = "TrabParte I/resources/alunosOrdenados.txt";
     public List<Aluno> ler() throws IOException {
         List<Aluno> alunos = new ArrayList<>();
 
