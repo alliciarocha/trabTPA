@@ -28,10 +28,17 @@ public class ListaNaoOrdenada<T> {
         No<T> aux = this.prim;
         while (aux != null){
             if (aux.getValor().equals(valor))
-                return valor;
+                return aux.getValor();
             aux = aux.getProx();
         }
         return null;
+    }
+    public void imprimir() {
+        No<T> aux = prim;
+        while (aux != null) {
+            System.out.println(aux.getValor());
+            aux = aux.getProx();
+        }
     }
 
 }

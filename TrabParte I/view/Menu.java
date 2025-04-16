@@ -35,8 +35,13 @@ public class Menu {
                         break;
 
                     case 2:
+                        Scanner sc2 = new Scanner(System.in);
                         System.out.println("\nVocê escolheu: *** PESQUISAR NA LISTA ORDENADA ***");
+                        System.out.print("Digite a matrícula do aluno: ");
+                        String matriculaOrd = sc2.nextLine();
+                        controller.pesquisarAlunoPorMatriculaOrdenada(matriculaOrd);
                         break;
+
 
                     case 3:
                         System.out.println("\nAté logo! Encerrando o programa...");

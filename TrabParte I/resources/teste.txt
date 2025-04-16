@@ -1,0 +1,6 @@
+5
+4;Sandro Monteiro;6.07
+2;Heitor Jacob;3.16
+5;Olivia Herrera;3.78
+3;Denise Urbano;4.95
+1;Sandra Dantas;0.19

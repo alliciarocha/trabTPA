@@ -2,6 +2,7 @@ package controller;
 
 import model.*;
 import model.library.ListaNaoOrdenada;
+import model.library.ListaOrdenada;
 import view.Mensagem;
 
 import java.io.IOException;
@@ -11,17 +12,17 @@ import static view.Mensagem.*;
 
 public class AlunoController {
     private final ListaNaoOrdenada<Aluno> listaNaoOrdenada;
-//    private ListaOrdenada<Aluno> listaOrdenada;
+    private ListaOrdenada<Aluno> listaOrdenada;
 
     public AlunoController() {
         this.listaNaoOrdenada = new ListaNaoOrdenada<>();
-//        this.listaOrdenada = new ListaOrdenada<>();
+        this.listaOrdenada = new ListaOrdenada<>();
     }
 
     private void adicionarAlunosNaLista(List<Aluno> alunos) {
         for (Aluno aluno : alunos) {
             listaNaoOrdenada.adicionar(aluno);
-//        listaOrdenada.adicionar(aluno);
+            listaOrdenada.adicionar(aluno);
         }
     }
 
@@ -29,24 +30,35 @@ public class AlunoController {
         LeitorArquivos leitor = new LeitorArquivos();
 
         try {
-            long inicio = System.nanoTime();
+            //leitura e cálculo da não ordenada
+            long inicioNaoOrd = System.nanoTime();
+            leitor.ler(listaNaoOrdenada);
+            long fimNaoOrd = System.nanoTime();
 
-            List<Aluno> alunos = leitor.ler();
-            adicionarAlunosNaLista(alunos);
+            //leitura e cálculo da ordenada
+            long inicioOrd = System.nanoTime();
+            leitor.lerOrdenada(listaOrdenada);
+            long fimOrd = System.nanoTime();
 
             FormatoVerde(
                     "LISTAS CRIADAS COM SUCESSO!"
             );
 
-            long fim = System.nanoTime();
-            double tempoSegundos = (fim - inicio) / 1_000_000_000.0;
 
-            String tempoToString = String.format("%.3f", tempoSegundos);
-            String string = "Tempo: " + tempoToString + " segundos";
+            double tempoNaoOrdSeg = (fimNaoOrd - inicioNaoOrd) / 1_000_000_000.0;
+            double tempoOrdSeg = (fimOrd - inicioOrd) / 1_000_000_000.0;
 
-            FormatoAzul(
-                    "TEMPO GASTO NO PROCESSO DE LER O ARQUIVO E CRIAR LISTAS",
-                    string
+            String tempoNaoOrdStr = String.format("%.6f", tempoNaoOrdSeg);
+            String tempoOrdStr = String.format("%.6f", tempoOrdSeg);
+
+            Mensagem.FormatoVerde(
+                    "LISTAS CRIADAS COM SUCESSO!"
+            );
+
+            Mensagem.FormatoAzul(
+                    "TEMPOS DE CRIAÇÃO DAS LISTAS:",
+                    "Lista NÃO Ordenada: " + tempoNaoOrdStr + " segundos",
+                    "Lista ORDENADA: " + tempoOrdStr + " segundos"
             );
 
         } catch (Exception e) {
@@ -59,6 +71,10 @@ public class AlunoController {
 
     public void pesquisarAlunoPorMatricula(String matricula) {
         try {
+            //descomentar somente quando querer visualizar se está certinho a geração das listas
+            //listaNaoOrdenada.imprimir();
+            //listaOrdenada.imprimir();
+
             long inicio = System.nanoTime();
 
             int matriculaInt = Integer.parseInt(matricula);
@@ -80,7 +96,9 @@ public class AlunoController {
                 );
             } else {
                 Mensagem.FormatoVermelho(
-                        "ERRO: ALUNO NÃO ENCONTRADO NO SISTEMA!"
+                        "ERRO: ALUNO NÃO ENCONTRADO NO SISTEMA!",
+                        "TEMPO DE EXECUÇÃO DA PESQUISA",
+                        "Tempo: " + tempoStr + " segundos"
                 );
             }
         } catch (NumberFormatException e) {
@@ -91,4 +109,44 @@ public class AlunoController {
             );
         }
     }
+
+    public void pesquisarAlunoPorMatriculaOrdenada(String matriculaStr) {
+        try {
+            long inicio = System.nanoTime();
+
+            int matricula = Integer.parseInt(matriculaStr);
+            Aluno chave = new Aluno(matricula, "", 0.0f);
+
+            Aluno resultado = listaOrdenada.pesquisar(chave);
+
+            long fim = System.nanoTime();
+            double tempoSegundos = (fim - inicio) / 1_000_000_000.0;
+            String tempoStr = String.format("Tempo de execução: %.6f segundos", tempoSegundos);
+
+            if (resultado != null) {
+                TextoAmarelo("***  O ALUNO FOI ENCONTRADO COM SUCESSO NA LISTA ORDENADA!!!  ***");
+                Mensagem.FormatoAzul(
+                        "DADOS DO ALUNO:",
+                        "Nome: " + resultado.getNome(),
+                        "Matrícula: " + resultado.getMatricula(),
+                        "Nota: " + resultado.getNota(),
+                        "TEMPO DE EXECUÇÃO DA PESQUISA",
+                        "Tempo: " + tempoStr + " segundos"
+                );
+            } else {
+                Mensagem.FormatoVermelho(
+                        "ERRO: ALUNO NÃO ENCONTRADO NO SISTEMA!",
+                        "TEMPO DE EXECUÇÃO DA PESQUISA",
+                        "Tempo: " + tempoStr + " segundos"
+                );
+            }
+        } catch (NumberFormatException e) {
+            Mensagem.FormatoAmarelo(
+                    "ERRO: Matrícula inválida!",
+                    "Apenas números inteiros são permitidos!",
+                    "Tente novamente."
+            );
+        }
+    }
+
 }
