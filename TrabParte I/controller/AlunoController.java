@@ -16,8 +16,9 @@ public class AlunoController {
 
     public AlunoController() {
         this.listaNaoOrdenada = new ListaNaoOrdenada<>();
-        this.listaOrdenada = new ListaOrdenada<>();
+        this.listaOrdenada = new ListaOrdenada<>(new ComparadorPorMatricula());
     }
+
 
     private void adicionarAlunosNaLista(List<Aluno> alunos) {
         for (Aluno aluno : alunos) {
@@ -72,8 +73,9 @@ public class AlunoController {
     public void pesquisarAlunoPorMatricula(String matricula) {
         try {
             //descomentar somente quando querer visualizar se está certinho a geração das listas
-            //listaNaoOrdenada.imprimir();
-            //listaOrdenada.imprimir();
+            listaNaoOrdenada.imprimir();
+            System.out.println("/n");
+            listaOrdenada.imprimir();
 
             long inicio = System.nanoTime();
 

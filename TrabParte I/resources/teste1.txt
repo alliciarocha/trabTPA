@@ -1,0 +1,6 @@
+5
+5000;Leonardo Klein;1.0
+2500;Ubirajara Rodrigues;2.0
+1250;Ubirajara Iglesias;2.0
+312;Enzo Rangel;1.5
+156;Bernardo Barreto;4.0

@@ -11,7 +11,11 @@ import java.util.*;
 import static view.Mensagem.FormatoVerde;
 
 public class LeitorArquivos {
-    private static final String NOME_ARQUIVO = "TrabParte I/resources/teste.txt";
+
+    // TROCAR AQUI O NOME DO ARQUIVO
+    private static final String NOME_ARQUIVO = "TrabParte I/resources/teste1.txt"; // TROCAR AQUI O NOME DO ARQUIVO
+    // TROCAR AQUI O NOME DO ARQUIVO
+
     public void ler(ListaNaoOrdenada<Aluno> listaNaoOrd) throws IOException {
         //List<Aluno> alunos = new ArrayList<>();
 
