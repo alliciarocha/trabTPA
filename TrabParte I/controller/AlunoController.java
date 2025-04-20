@@ -72,12 +72,12 @@ public class AlunoController {
 
     public void pesquisarAlunoPorMatricula(String matricula) {
         try {
-
-            //descomentar somente quando querer visualizar se está certinho a geração das listas
-            Mensagem.FormatoAzul("SEGUE ABAIIXO A LISTA NÃO ORDENADA: ");
-            listaNaoOrdenada.imprimir();
-            Mensagem.FormatoAzul("SEGUE ABAIIXO A LISTA ORDENADA: ");
-            listaOrdenada.imprimir();
+            
+            // VERIFICAR SE AS LISTAS ESTÃO SENDO GERADAS CORRETAMENTE
+            // Mensagem.FormatoAzul("SEGUE ABAIIXO A LISTA NÃO ORDENADA: ");
+            // listaNaoOrdenada.imprimir();
+            // Mensagem.FormatoAzul("SEGUE ABAIIXO A LISTA ORDENADA: ");
+            // listaOrdenada.imprimir();
 
             long inicio = System.nanoTime();
 
@@ -87,7 +87,7 @@ public class AlunoController {
 
             long fim = System.nanoTime();
             double tempoSegundos = (fim - inicio) / 1_000_000_000.0;
-            String tempoStr = String.format("%.6f segundos", tempoSegundos);
+            String tempoStr = String.format("%.6f", tempoSegundos);
             if (resultado != null) {
                 TextoAmarelo("***  O ALUNO FOI ENCONTRADO COM SUCESSO!!!  ***");
                 Mensagem.FormatoAzul(
