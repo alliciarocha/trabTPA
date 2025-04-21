@@ -11,5 +11,13 @@ Essas funcionalidades são essenciais para a realização dos experimentos e an�
 ### 📥 Instalação
 1. Clone este repositório:
    ```bash
-   git clone https://github.com/seu-usuario/repositorio.git
-
+   git clone [https://github.com/alliciarocha/trabTPA.git]
+2. Navegue até o diretório do projeto:
+   ```bash
+   cd trabTPA
+3. Compile o código:
+   ```bash
+   javac Main.java
+### 🖥️ Uso
+   ```bash
+   java Main
