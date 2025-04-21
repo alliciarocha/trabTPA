@@ -19,5 +19,10 @@ Essas funcionalidades são essenciais para a realização dos experimentos e an�
    ```bash
    javac Main.java
 ### 🖥️ Uso
+- Para rodar o programa, execute o comando: 
    ```bash
-   java Main
+   javac Main.java
+### 🧪 Testes/Experimentação
+Após a execução do código, você poderá testar as operações de inserção e pesquisa e coletar os tempos de execução para as análises de complexidade.
+
+
